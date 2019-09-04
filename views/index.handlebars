@@ -1,36 +1,39 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <H1>Scrape App</H1>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#"><h2>Home</h2><span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#"><h2>Saved Articles</h2></a>
-<button type="button" class="btn btn-primary">Scrape new articles</button>
-     </div>
+<nav class="navbar navbar-dark bg-primary justify-content-center">
+    <ul class="nav justify-content-center">
+      <li class="nav-item mr-4">
+          <h1>Mongo Scraper App</h1>
+      </li>
+    <li class="nav-item">
+      <h2><button type="button" class="btn-lg btn-danger" id="scrape">Scrape new articles</button></h2>
+  </li>
+  <li class="nav-item ml-4">
+      <a href="/saved"><button type="button" class="btn-lg btn-success">Saved Articles</button></a>
+  </li>
+  </ul>
   </div>
 </nav>
-{{!-- <ul> --}}
-{{#each articles }}
-<div class="container">
-      <div class="row justify-content-md-center">
-     <div class="row">
-    <div class="col col-lg-6">
-<button type="button" class="btn btn-success">Add note</button>
-    </div>
-    <div class="col col-lg-6">
-<button type="button" class="btn btn-danger">Delete note</button>
-    </div>
-  </div>
-  </div>
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h3 class="display-4">{{title}}</h3>
-        </div>
+  <div class="container-fluid arcticle-container">
+    <div class="bg_image">
 
-    <p class="lead">{{content}}</p>
+    </div>
+    
+  {{#each articles }}
+  <div class="card m-4">
+<div class="card-header">
+  <div class="row">
+    <div class="col-lg-9">
+  <a class="link" href="{{link}}"><h4 class="display-4">{{title}} </a></h4>
   </div>
+  <div class="col-lg-3">
+ <button type="button" id ="save" class="btn-lg btn-success m-4" data-id={{_id}}>Save note</button><button type="button" id="delete" class="btn-lg btn-danger" data-id={{_id}} >Delete note</button>
+ </div>
+ </div>
+</div>
+  <div class="card-body">
+ <p class="lead">{{content}}</p>
+   </div>
 </div>
 </div>
-
 {{/each}}
-{{!-- </ul> --}}
+
