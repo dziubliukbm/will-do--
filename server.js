@@ -34,7 +34,7 @@ app.use(express.static("public"));
 
 app.use(router);
 
-mongoose.connect("mongodb://localhost/scrapedData", {useNewUrlParser: true})
+mongoose.connect(process.env.MONGOLAB_GRAY_URI || "mongodb://localhost/scrapedData", {useNewUrlParser: true})
 
 require("./config/apiRoutes")(router, db);
 require("./config/routes")(router, db);
