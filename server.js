@@ -39,6 +39,6 @@ mongoose.connect(process.env.MONGOLAB_GRAY_URI || "mongodb://localhost/scrapedDa
 require("./config/apiRoutes")(router, db);
 require("./config/routes")(router, db);
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
     console.log("App running on port ", PORT);
   });
